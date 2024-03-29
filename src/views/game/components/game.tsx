@@ -8,6 +8,6 @@ type GameProps = {
   setGameResult: Dispatch<GameResult | null>;
 };
 
-export const Game = ({}: GameProps) => {
+export const Game = (_: GameProps) => {
   return <Container>game</Container>;
 };

@@ -11,7 +11,8 @@ export type Step = "intro" | "game" | "postgame";
 
 export const Game = () => {
   const [step, setStep] = useState<Step>("intro");
-  const [_, setGameResult] = useState<GameResult | null>(null);
+  const [gameResult, setGameResult] = useState<GameResult | null>(null);
+  if (gameResult === null) return <h1>e</h1>;
 
   return (
     <SideView>
