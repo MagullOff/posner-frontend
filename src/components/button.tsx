@@ -1,18 +1,17 @@
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 type ButtonProps = {
   text: string;
+  onClick: () => void;
 };
-export const Button = ({ text }: ButtonProps) => {
-  const navigate = useNavigate();
+export const Button = ({ text, onClick }: ButtonProps) => {
   return (
     <Container
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      onClick={() => navigate("/stats")}
+      onClick={onClick}
     >
       <TextContainer>{text}</TextContainer>
       <Arrow />

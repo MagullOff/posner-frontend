@@ -3,11 +3,12 @@ import { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import { ViewContainer } from "../components/view";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
-const TopLeftButton = styled.div`
+const TopLeftButton = styled(motion.div)`
   position: absolute;
-  top: 20px;
-  left: 20px;
+  font-size: 60px;
+  cursor: pointer;
 `;
 
 const OutsideContainer = styled(motion.div)`
@@ -20,7 +21,7 @@ const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: min(90vw, 1000px);
+  width: min(90vw, 1000px);
 `;
 
 type SideViewProps = {
@@ -31,7 +32,13 @@ export const SideView = ({ children }: SideViewProps) => {
   const navigate = useNavigate();
   return (
     <ViewContainer>
-      <TopLeftButton onClick={() => navigate("/..")}>sadf</TopLeftButton>
+      <TopLeftButton
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => navigate("/..")}
+      >
+        <ArrowBackIosIcon fontSize="inherit" />
+      </TopLeftButton>
       <OutsideContainer>
         <Container>{children}</Container>
       </OutsideContainer>
