@@ -3,6 +3,10 @@ export const lightTheme = {
     primary: "black",
     secondary: "white",
     background: "white",
+    cueBorder: "darkgreen",
+    cueBackground: "green",
+    hitBorder: "red",
+    hitBackground: "tomato",
   },
   fonts: ["sans-serif", "Montserrat"],
   fontSizes: {

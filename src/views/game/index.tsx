@@ -1,5 +1,5 @@
 import { SideView } from "../../components/sideView";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { styled } from "styled-components";
 import { Intro } from "./components/intro";
@@ -9,19 +9,27 @@ import { GameResult } from "../../types/gameResult";
 
 export type Step = "intro" | "game" | "postgame";
 
+export type State = {
+  step: Step;
+  gameResult: GameResult | null;
+};
+
 export const Game = () => {
-  const [step, setStep] = useState<Step>("intro");
-  const [gameResult, setGameResult] = useState<GameResult | null>(null);
-  if (gameResult === null) return <h1>e</h1>;
+  const [state, setState] = useState<State>({
+    step: "intro",
+    gameResult: null,
+  });
 
   return (
     <SideView>
       <GameContainer>
-        {step === "intro" && <Intro setStep={setStep} />}
-        {step === "game" && (
-          <GameComponent setGameResult={setGameResult} setStep={setStep} />
-        )}
-        {step === "postgame" && <Postgame />}
+        <AnimatePresence mode="wait">
+          {state.step === "intro" && <Intro key="intro" setState={setState} />}
+          {state.step === "game" && (
+            <GameComponent key="game" setState={setState} />
+          )}
+          {state.step === "postgame" && <Postgame key="post" />}
+        </AnimatePresence>
       </GameContainer>
     </SideView>
   );

@@ -33,7 +33,7 @@ export const Home = () => {
     <ViewContainer isHomeView>
       <OutsideContainer>
         <Container>
-          <Title>Posner's Experiment</Title>
+          <Title>Posner's cueing task</Title>
           <ButtonContainer>
             <Button text="Play" onClick={navigateTo("/play")} />
             <Button text="About" onClick={navigateTo("/about")} />

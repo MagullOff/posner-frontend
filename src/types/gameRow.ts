@@ -5,6 +5,6 @@ export type GameRow = {
   cuePosition: Position;
   targetPosition: Position;
   isCueValid: boolean;
-  responsTimeMs: number;
-  result: ResponseResult;
+  responsTimeMs?: number;
+  result?: ResponseResult;
 };

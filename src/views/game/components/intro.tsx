@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import { Dispatch } from "react";
 import { styled } from "styled-components";
-import { Step } from "..";
+import { State } from "..";
 import { Button } from "../../../components/button";
+import { Container } from "./container";
 
 type IntroProps = {
-  setStep: Dispatch<Step>;
+  setState: Dispatch<State>;
 };
 
-export const Intro = ({ setStep }: IntroProps) => {
+export const Intro = ({ setState }: IntroProps) => {
   return (
     <Container>
       <motion.h1>Let's test!</motion.h1>
@@ -29,15 +30,14 @@ export const Intro = ({ setStep }: IntroProps) => {
         congue.
       </motion.p>
       <ButtonContainer>
-        <Button text="Play!" onClick={() => setStep("game")} />
+        <Button
+          text="Play!"
+          onClick={() => setState({ step: "game", gameResult: null })}
+        />
       </ButtonContainer>
     </Container>
   );
 };
-
-const Container = styled(motion.div)`
-  padding: 3vh;
-`;
 
 const ButtonContainer = styled(motion.div)`
   padding: 0 250px 0 250px;
