@@ -4,7 +4,7 @@ export const lightTheme = {
     secondary: "white",
     background: "white",
     cueBorder: "darkgreen",
-    cueBackground: "green",
+    cueBackground: "lightgreen",
     hitBorder: "red",
     hitBackground: "tomato",
   },

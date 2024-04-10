@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Dispatch, useEffect, useState } from "react";
+import { Dispatch, useEffect, useState, useCallback } from "react";
 import { styled } from "styled-components";
 import { State } from "..";
 import { GameRow } from "../../../types/gameRow";
@@ -45,70 +45,84 @@ export const Game = ({ setState }: GameProps) => {
     gameRows: generateGameRows(),
     count: 0,
   });
+
   const [boxState, setBoxState] = useState<BoxState>({
     left: "empty",
     right: "empty",
   });
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "ArrowLeft") {
-        handleClick("left");
-      } else if (event.key === "ArrowRight") {
-        handleClick("right");
-      }
-    };
+  const [activeHit, setActiveHit] = useState<number | null>(null);
 
-    const handleClick = (clickedBox: "left" | "right") => {
-      const clickTime = new Date().getTime();
+  const handleClick = useCallback(
+    (clickedBox: "left" | "right", hitTime: number) => {
+      const clickTime = Date.now();
       const correctBox = gameState.gameRows[gameState.count].targetPosition;
       const correct: ResponseResult =
         clickedBox === correctBox ? "correct" : "wrong";
 
-      console.log("full", correctBox);
-      console.log("clicked", clickedBox);
-      console.log(correct, clickTime, gameState.count);
-
-      window.removeEventListener("keydown", handleKeyDown);
       let newGameRows = gameState.gameRows.map((c, i) =>
-        i === gameState.count ? { ...c, result: correct } : c,
+        i === gameState.count
+          ? { ...c, result: correct, responsTimeMs: clickTime - hitTime }
+          : c,
       );
       setGameState({ gameRows: newGameRows, count: gameState.count + 1 });
       setBoxState({
         left: "empty",
         right: "empty",
       });
-    };
+    },
+    [gameState],
+  );
 
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (!activeHit) return;
+
+      if (event.key === "ArrowLeft") {
+        handleClick("left", activeHit!);
+      } else if (event.key === "ArrowRight") {
+        handleClick("right", activeHit!);
+      }
+      setActiveHit(null);
+    },
+    [activeHit, handleClick],
+  );
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
+
+  const mainLogic = useCallback(() => {
+    const isCueLeft =
+      gameState.gameRows[gameState.count].cuePosition === "left";
+    const isHitLeft =
+      gameState.gameRows[gameState.count].targetPosition === "left";
+    setTimeout(() => {
+      setActiveHit(Date.now());
+      setBoxState({
+        left: isHitLeft ? "full" : "empty",
+        right: isHitLeft ? "empty" : "full",
+      });
+    }, 200);
+    setBoxState({
+      left: isCueLeft ? "cue" : "empty",
+      right: isCueLeft ? "empty" : "cue",
+    });
+  }, [gameState]);
+
+  useEffect(() => {
     if (gameState.count === gameNumber) {
-      console.log(gameState);
       setState({
         step: "postgame",
         gameResult: { attempts: gameState.gameRows },
       });
-    } else {
-      setTimeout(() => {
-        const timer = setTimeout(() => {
-          const isCueLeft =
-            gameState.gameRows[gameState.count].cuePosition === "left";
-          const isHitLeft =
-            gameState.gameRows[gameState.count].targetPosition === "left";
-          setTimeout(() => {
-            setBoxState({
-              left: isHitLeft ? "full" : "empty",
-              right: isHitLeft ? "empty" : "full",
-            });
-          }, 200);
-          setBoxState({
-            left: isCueLeft ? "cue" : "empty",
-            right: isCueLeft ? "empty" : "cue",
-          });
-          window.addEventListener("keydown", handleKeyDown);
-        }, 2000);
-        return () => clearTimeout(timer);
-      }, 1000);
+      return;
     }
-  }, [gameState, setState]);
+
+    const timeout = setTimeout(mainLogic, 2000);
+    return () => clearTimeout(timeout);
+  }, [gameState, setState, mainLogic]);
 
   return (
     <Container>
@@ -117,7 +131,7 @@ export const Game = ({ setState }: GameProps) => {
           <ShowBox state={boxState.left} />
         </Column>
         <Column>
-          <motion.h1 >+</motion.h1>
+          <motion.h1>+</motion.h1>
         </Column>
         <Column>
           <ShowBox state={boxState.right} />

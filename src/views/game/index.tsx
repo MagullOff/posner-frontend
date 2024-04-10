@@ -28,7 +28,14 @@ export const Game = () => {
           {state.step === "game" && (
             <GameComponent key="game" setState={setState} />
           )}
-          {state.step === "postgame" && <Postgame key="post" />}
+          {state.step === "postgame" && (
+            <Postgame
+              key="post"
+              sendResults={() => {
+                console.log(state.gameResult);
+              }}
+            />
+          )}
         </AnimatePresence>
       </GameContainer>
     </SideView>

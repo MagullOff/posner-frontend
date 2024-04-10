@@ -4,7 +4,11 @@ import { styled } from "styled-components";
 import { Button } from "../../../components/button";
 import { Container } from "./container";
 
-export const Postgame = () => {
+type PostGameProps = {
+  sendResults: () => void;
+};
+
+export const Postgame = ({ sendResults }: PostGameProps) => {
   const navigate = useNavigate();
   return (
     <Container>
@@ -27,6 +31,7 @@ export const Postgame = () => {
         <Button
           text="Submit"
           onClick={() => {
+            sendResults();
             navigate("..");
           }}
         />
