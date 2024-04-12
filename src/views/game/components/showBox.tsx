@@ -26,7 +26,7 @@ const ShowBoxHit = styled(motion.div)`
   background-color: ${(props) => props.theme.colors.hitBackground};
 `;
 
-const ShowBoxContainer = styled(motion.div) <{ iscued?: boolean }>`
+const ShowBoxContainer = styled(motion.div)<{ iscued?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
