@@ -29,17 +29,21 @@ const ButtonContainer = styled(motion.div)`
 export const Home = () => {
   const navigate = useNavigate();
   const navigateTo = (to: string) => () => navigate(to);
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   return (
     <ViewContainer isHomeView>
       <OutsideContainer>
-        <Container>
-          <Title>Posner's cueing task</Title>
-          <ButtonContainer>
-            <Button text="Play" onClick={navigateTo("/play")} />
-            <Button text="About" onClick={navigateTo("/about")} />
-            <Button text="Stats" onClick={navigateTo("/stats")} />
-          </ButtonContainer>
-        </Container>
+        {isMobile && (
+          <Container>Aplikacja niedostępna na urządzeniach mobilnych</Container>
+        )}
+        {!isMobile && (
+          <Container>
+            <Title>Zadanie Posnera</Title>
+            <ButtonContainer>
+              <Button text="Graj!" onClick={navigateTo("/play")} />
+            </ButtonContainer>
+          </Container>
+        )}
       </OutsideContainer>
     </ViewContainer>
   );

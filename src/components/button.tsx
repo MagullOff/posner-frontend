@@ -21,7 +21,7 @@ export const Button = ({ text, onClick }: ButtonProps) => {
 
 const Container = styled(motion.div)`
   height: 7vh;
-  font-size: 4vh;
+  font-size: 3vh;
   display: flex;
   justify-content: center;
   border-radius: 10px;

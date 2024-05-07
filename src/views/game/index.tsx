@@ -6,8 +6,9 @@ import { Intro } from "./components/intro";
 import { Postgame } from "./components/postgame";
 import { Game as GameComponent } from "./components/game";
 import { GameResult } from "../../types/gameResult";
+import { Instruction } from "./components/instruction";
 
-export type Step = "intro" | "game" | "postgame";
+export type Step = "intro" | "instruction" | "game" | "postgame";
 
 export type State = {
   step: Step;
@@ -25,17 +26,13 @@ export const Game = () => {
       <GameContainer>
         <AnimatePresence mode="wait">
           {state.step === "intro" && <Intro key="intro" setState={setState} />}
+          {state.step === "instruction" && (
+            <Instruction key="instruction" setState={setState} />
+          )}
           {state.step === "game" && (
             <GameComponent key="game" setState={setState} />
           )}
-          {state.step === "postgame" && (
-            <Postgame
-              key="post"
-              sendResults={() => {
-                console.log(state.gameResult);
-              }}
-            />
-          )}
+          {state.step === "postgame" && <Postgame key="post" />}
         </AnimatePresence>
       </GameContainer>
     </SideView>
