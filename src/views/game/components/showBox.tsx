@@ -10,7 +10,11 @@ export type ShowBoxProps = {
 export const ShowBox = ({ state }: ShowBoxProps) => {
   return (
     <ShowBoxContainer iscued={state === "cue" ? true : undefined}>
-      {state === "full" && <ShowBoxHit>x</ShowBoxHit>}
+      {state === "full" && (
+        <ShowBoxHit>
+          <CloseIcon fontSize="inherit" />
+        </ShowBoxHit>
+      )}
       {state === "cue" && (
         <ShowBoxCue>
           <CloseIcon fontSize="inherit" />
