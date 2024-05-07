@@ -1,1 +1,1 @@
-export const BACKEND_URL = "http://localhost:8080/";
+export const BACKEND_URL = "https://mcola.aiwo.pl:8080/";
