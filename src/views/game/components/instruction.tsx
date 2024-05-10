@@ -19,22 +19,23 @@ export const Instruction = ({ setState }: IntroProps) => {
     <Container>
       <motion.h1>Instrukcja</motion.h1>
       <motion.p>
-        Na ekranie znajdować się będzie punkt skupienia między dwoma
-        prostokątami. Naciśnij prawą strzałkę jeżeli zauważysz sygnał w prawym
-        prostokącie i lewą strzałkę jeżeli zauważysz sygnał w lewym prostokącie.
-        Każda próba będzie poprzedzona wyświetleniem znaku "x", który jest
-        wskazówką. Nie reaguj na niego. Eksperyment składa się ze 100 prób.
-        Poniżej znajduje się scena z eksperymentu gdzie po lewej stronie
-        znajdziemy wskazówkę, a po prawej sygnał.
+        Na środku ekranu znajdować się będzie punkt skupienia w postaci znaku
+        "+". Na lewo i na prawo od niego znajdą się dwa pola. Naciśnij prawą
+        strzałkę jeżeli zauważysz sygnał w prawym prostokącie i lewą strzałkę
+        jeżeli zauważysz sygnał w lewym prostokącie. Każda próba będzie
+        poprzedzona wyświetleniem wskazówki. Nie reaguj na nią. Eksperyment
+        składa się z 50 prób. Poniżej pokazane są wskazówka i sygnał.
       </motion.p>
       <GridContainer>
         <Column>
+          <motion.div>wskazówka</motion.div>
           <ShowBox state={"cue"} />
         </Column>
         <Column>
           <motion.h1>+</motion.h1>
         </Column>
         <Column>
+          <motion.div>sygnał</motion.div>
           <ShowBox state={"full"} />
         </Column>
       </GridContainer>
@@ -59,6 +60,8 @@ const GridContainer = styled(motion.div)`
 const Column = styled(motion.div)`
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: 20px;
 `;

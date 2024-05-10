@@ -8,14 +8,18 @@ export const Postgame = () => {
   const navigate = useNavigate();
   return (
     <Container>
-      <motion.h1>Dziękujemy za udział!</motion.h1>
+      <motion.h1>Dziękujemy za udział w badaniu!</motion.h1>
       <motion.p>
-        Dziękujemy za udział w badaniu. Wyniki badania, w którym wzięli Państwo
-        udział, będą wykorzystywane w zakresie zajęć na Uniwersytecie
-        Warszawskim Psychologia eksperymentalna. Badanie ma na celu wyznaczenia
-        czasu reakcji w zależności od poprawności wskazówki. Jeśli mają Państwo
-        jakieś pytania, prosimy o kontakt: XXX
+        Wyniki badania będą wykorzystywane w ramach zajęć "Psychologia
+        Eksperymentalna" na Uniwersytecie Warszawskim Badanie ma na celu
+        wyznaczenie czasu reakcji w zależności od poprawności wskazówki.
       </motion.p>
+      <motion.p>
+        Jeśli chcesz dowiedzieć się więcej o badaniu Posnera, więcej informacji
+        znajdziesz pod poniższym adresem:
+        (https://en.wikipedia.org/wiki/Posner_cueing_task)
+      </motion.p>
+      <motion.p>Jeśli masz jakieś pytania, prosimy o kontakt: XXX</motion.p>
       <ButtonContainer>
         <Button
           text="Powrót"

@@ -14,18 +14,19 @@ export const Intro = ({ setState }: IntroProps) => {
     <Container>
       <motion.h1>Eksperyment Posnera!</motion.h1>
       <motion.p>
-        Jesteśmy studentami pierwszego roku kognitywistyki na Uniwersytecie
-        Warszawskim. Prowadzimy badanie o tym jak bodźce wizualne wpływają na
+        Jesteśmy studentami I roku Kognitywistyki na Uniwersytecie
+        Warszawskim. Prowadzimy badanie o tym, jak bodźce wizualne wpływają na
         procesy uwagi i realizujemy je w ramach przedmiotu “Psychologia
-        Eksperymentalna” prowadzona przez Panią doktor Joannę Komorowską-Mach i
-        Wiktora Rorota. Badanie jest w pełni anonimowe, można zrezygnować z
-        udziału w każdym momencie, a wyniki będą rozpatrywane wyłącznie grupowo.
-        Badanie polega na wzięciu udziału w krótkiej grze mierzącej czas reakcji
-        (należy to zrobić na komputerze), trwającej ok. 2-3 minuty.
+        Eksperymentalna” prowadzonego przez dr Joannę Komorowską-Mach i
+        Wiktora Rorota.
       </motion.p>
       <motion.p>
-        Jeśli wyrażają Państwo na udział w badaniu prosze klinkąć “Dalej”,
-        jednak jeśli Panstwo nie wyrażają zgody proszę opuścić stronę.
+        Badanie jest w pełni anonimowe, można zrezygnować z
+        udziału w każdym momencie, a wyniki będą rozpatrywane wyłącznie grupowo.
+        Badanie polega na wzięciu udziału w krótkiej grze mierzącej czas reakcji, trwającej ok. 2-3 minuty.
+      </motion.p>
+      <motion.p>
+        Jeśli wyrażasz zgodę na udział w badaniu klinij “Dalej".
       </motion.p>
       <ButtonContainer>
         <Button
