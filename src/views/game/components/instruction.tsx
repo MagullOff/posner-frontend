@@ -20,11 +20,13 @@ export const Instruction = ({ setState }: IntroProps) => {
       <motion.h1>Instrukcja</motion.h1>
       <motion.p>
         Na środku ekranu znajdować się będzie punkt skupienia w postaci znaku
-        "+". Na lewo i na prawo od niego znajdą się dwa pola. Naciśnij prawą
-        strzałkę jeżeli zauważysz sygnał w prawym prostokącie i lewą strzałkę
-        jeżeli zauważysz sygnał w lewym prostokącie. Każda próba będzie
-        poprzedzona wyświetleniem wskazówki. Nie reaguj na nią. Eksperyment
-        składa się z 50 prób. Poniżej pokazane są wskazówka i sygnał.
+        "+". Na lewo i na prawo od niego znajdą się dwa pola. Naciśnij{" "}
+        <motion.b>prawą strzałkę</motion.b> jeżeli zauważysz sygnał w prawym
+        prostokącie i <motion.b>lewą strzałkę</motion.b> jeżeli
+        zauważysz sygnał w lewym prostokącie. Każda próba będzie
+        poprzedzona wyświetleniem wskazówki.{" "}
+        <motion.b>Nie reaguj na nią</motion.b>. Eksperyment składa się z 50
+        prób. Poniżej pokazane są wskazówka i sygnał.
       </motion.p>
       <GridContainer>
         <Column>

@@ -58,8 +58,14 @@ type GameState = {
   informationLevel: number;
 };
 
+const getRandomInformationValue = () => {
+  const values = [35, 45, 55, 65];
+  const randomIndex = Math.floor(Math.random() * values.length);
+  return values[randomIndex];
+}
+
 export const Game = ({ setState }: GameProps) => {
-  const informationLevel = Math.floor((Math.random() * 100) / 2 + 25);
+  const informationLevel = getRandomInformationValue();
   const timeoutRef = useRef<any>();
   const [gameState, setGameState] = useState<GameState>({
     gameRows: generateGameRows(informationLevel),
