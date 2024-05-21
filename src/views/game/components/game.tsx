@@ -9,7 +9,7 @@ import { ResponseResult } from "../../../types/responseResult";
 import { Container as BaseContainer } from "./container";
 import { ShowBox, ShowBoxState } from "./showBox";
 
-const gameNumber = 100;
+const gameNumber = 40;
 
 type GameProps = {
   setState: Dispatch<State>;
