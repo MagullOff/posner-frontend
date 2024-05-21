@@ -1,3 +1,4 @@
+import ProgressBar from "@ramonak/react-progress-bar";
 import { motion } from "framer-motion";
 import { Dispatch, useEffect, useState, useCallback, useRef } from "react";
 import { styled } from "styled-components";
@@ -204,13 +205,22 @@ export const Game = ({ setState }: GameProps) => {
           <ShowBox state={boxState.right} />
         </Column>
       </GridContainer>
-    </Container>
+      <BarContainer>
+        <ProgressBar completed={Math.fround((gameState.count / gameNumber) * 100)} bgColor={"black"} isLabelVisible={false} />
+      </BarContainer>
+    </Container >
   );
 };
+
+const BarContainer = styled(motion.div)`
+  margin-top: 150px;
+  flex 1;
+`
 
 const GridContainer = styled(motion.div)`
   margin-top: 170px;
   display: flex;
+  flex: 1;
   flex-direction: row;
   align-items: center;
 `;
@@ -219,8 +229,13 @@ const Column = styled(motion.div)`
   flex: 1;
   height: 150px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
 
-const Container = styled(BaseContainer)``;
+const Container = styled(BaseContainer)`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
