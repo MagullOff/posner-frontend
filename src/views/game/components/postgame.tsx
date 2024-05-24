@@ -25,7 +25,8 @@ export const Postgame = () => {
       </motion.p>
       <motion.p>
         Jeśli masz jakieś pytania, albo chcielibyście otrzymać raport z wynikami
-        badań po ich ukończeniu - prosimy o kontakt: XXX
+        badań po ich ukończeniu - prosimy o kontakt:
+        a.woznica8@student.uw.edu.pl
       </motion.p>
       <ButtonContainer>
         <Button
