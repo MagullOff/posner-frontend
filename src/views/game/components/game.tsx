@@ -1,4 +1,3 @@
-import ProgressBar from "@ramonak/react-progress-bar";
 import { motion } from "framer-motion";
 import { Dispatch, useEffect, useState, useCallback, useRef } from "react";
 import { styled } from "styled-components";
@@ -59,9 +58,7 @@ type GameState = {
 };
 
 const getRandomInformationValue = () => {
-  const values = [35, 45, 55, 65];
-  const randomIndex = Math.floor(Math.random() * values.length);
-  return values[randomIndex];
+  return Math.floor(Math.random() * (70 - 30 + 1)) + 30;
 }
 
 export const Game = ({ setState }: GameProps) => {
@@ -212,7 +209,7 @@ export const Game = ({ setState }: GameProps) => {
         </Column>
       </GridContainer>
       <BarContainer>
-        <ProgressBar completed={Math.fround((gameState.count / gameNumber) * 100)} bgColor={"black"} isLabelVisible={false} />
+        <motion.p>{gameState.count}/{gameNumber}</motion.p>
       </BarContainer>
     </Container >
   );
@@ -221,6 +218,9 @@ export const Game = ({ setState }: GameProps) => {
 const BarContainer = styled(motion.div)`
   margin-top: 150px;
   flex 1;
+  display: flex;
+  flex-direction: rows;
+  justify-content: center;
 `
 
 const GridContainer = styled(motion.div)`
