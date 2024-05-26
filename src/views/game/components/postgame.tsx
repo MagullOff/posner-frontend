@@ -14,9 +14,9 @@ export const Postgame = () => {
         zależności od tego jak często pokazywana wskazówka jest poprawna.
         Każdemu z badanych na początku eksperymentu przypisywana jest grupa, do
         korespondująca procentem ze wskazówek, które pojawiały się w tym samym
-        miejscu co właściwy bodziec - 35, 45, 55 i 65 procent. Po zebraniu
-        wyników, sprawdzone zostanie czy ilość mylnych wskazówek miała wpływ na
-        skutecznośc wykonywania zadań.
+        miejscu co właściwy bodziec - od 30 do 70 procent. Po zebraniu wyników,
+        sprawdzone zostanie czy liczba mylnych wskazówek miała wpływ na
+        skuteczność wykonywania zadań.
       </motion.p>
       <motion.p>
         Jeśli chcesz dowiedzieć się więcej o badaniu Posnera, więcej informacji
@@ -24,8 +24,8 @@ export const Postgame = () => {
         (https://en.wikipedia.org/wiki/Posner_cueing_task)
       </motion.p>
       <motion.p>
-        Jeśli masz jakieś pytania, albo chcielibyście otrzymać raport z wynikami
-        badań po ich ukończeniu - prosimy o kontakt:
+        Jeśli masz jakieś pytania, albo chcesz otrzymać raport z wynikami
+        badań po ich ukończeniu - prosimy o kontakt pod adresem mailowym:
         a.woznica8@student.uw.edu.pl
       </motion.p>
       <ButtonContainer>
