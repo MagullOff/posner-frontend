@@ -12,9 +12,9 @@ export const Postgame = () => {
       <motion.p>
         Eksperyment ma na celu badanie czasu reakcji przy mylących wskazówkach w
         zależności od tego jak często pokazywana wskazówka jest poprawna.
-        Każdemu z badanych na początku eksperymentu przypisywana jest grupa, do
-        korespondująca procentem ze wskazówek, które pojawiały się w tym samym
-        miejscu co właściwy bodziec - od 30 do 70 procent. Po zebraniu wyników,
+        Każdemu z badanych na początku losowo przypisywana jest grupa charakteryzująca
+        się tym, jaki procent wskazówek pojawi się w tym samym
+        miejscu co właściwy bodziec. Jest to wartość od 30 do 70 procent. Po zebraniu wyników,
         sprawdzone zostanie czy liczba mylnych wskazówek miała wpływ na
         skuteczność wykonywania zadań.
       </motion.p>
