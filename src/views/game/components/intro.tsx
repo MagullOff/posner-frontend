@@ -21,9 +21,9 @@ export const Intro = ({ setState }: IntroProps) => {
       </motion.p>
       <motion.p>
         Badanie jest w pełni anonimowe, można zrezygnować z udziału w każdym
-        momencie, a wyniki będą rozpatrywane wyłącznie grupowo. Badanie polega
-        na wzięciu udziału w krótkiej grze mierzącej czas reakcji, trwającej ok.
-        2-3 minuty.
+        momencie, a wyniki będą rozpatrywane wyłącznie grupowo. Mogą w nim wziąć
+        udział tylko osoby pełnoletnie. Badanie polega na wzięciu udziału w
+        krótkiej grze mierzącej czas reakcji, trwającej ok. 2-3 minuty.
       </motion.p>
       <motion.p>
         Jeśli wyrażasz zgodę na udział w badaniu, klinij “Dalej".
